@@ -18,9 +18,14 @@ jobs:
         java-version: '17'
 
     - name: Set up Flutter
-      uses: subosito/flutter-action@v2
+      uses: subosito/flutter-action@v3
       with:
-        flutter-version: '3.x'
+        flutter-version: '3.19.6'
+        channel: 'stable'
+        cache: true
+
+    - name: Reparar y generar estructura de Android
+      run: flutter create . --platforms=android
 
     - name: Install dependencies
       run: flutter pub get
